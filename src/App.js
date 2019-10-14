@@ -12,6 +12,7 @@ import './assets/fonts/iconfont.css'
 
 import Home from './views/Home'
 import Login from './views/Login'
+import CityList from './views/CityList'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/cityList" component={CityList} />
           <Redirect exact from="/" to="/home" />
         </Switch>
       </div>
