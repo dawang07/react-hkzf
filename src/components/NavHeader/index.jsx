@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { NavBar } from 'antd-mobile'
 import styles from './index.module.scss'
+import PropTypes from 'prop-types'
 
 function NavHeader({ history, children }) {
   return (
@@ -14,6 +15,11 @@ function NavHeader({ history, children }) {
       {children}
     </NavBar>
   )
+}
+
+//约束父组件传过来的值的类型
+NavHeader.propTypes = {
+  children: PropTypes.string.isRequired
 }
 
 export default withRouter(NavHeader)

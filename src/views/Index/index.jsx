@@ -8,6 +8,7 @@ import images1 from '../../assets/images/nav-1.png'
 import images2 from '../../assets/images/nav-2.png'
 import images3 from '../../assets/images/nav-3.png'
 import images4 from '../../assets/images/nav-4.png'
+import { getCurrentCity } from '../../utils/city'
 
 export default class index extends Component {
   state = {
@@ -15,12 +16,22 @@ export default class index extends Component {
     imgHeight: 212,
     isLoadingSwiper: false /* 加载轮播开关 */,
     tenementData: [], //租房小组数据
-    latestNews: [] //最新资讯数据
+    latestNews: [], //最新资讯数据
+    cityName: '深圳' //定位城市名称
   }
   componentDidMount() {
     this.getslideshowData()
     this.getTenementData()
     this.getLatestNews()
+    this.getLocationCityName()
+  }
+
+  //获取定位城市名称
+  async getLocationCityName() {
+    const { label } = await getCurrentCity()
+    this.setState({
+      cityName: label
+    })
   }
 
   //获取轮播图数据
@@ -178,11 +189,12 @@ export default class index extends Component {
   }
 
   render() {
+    const { cityName } = this.state
     return (
       <div className={styles.root}>
         {/* 渲染顶部搜索框 */}
         <div>
-          <SearchHeader cityName="深圳" />
+          <SearchHeader cityName={cityName} />
         </div>
         {/* 渲染轮播图 */}
         <div className={styles.swiper}>

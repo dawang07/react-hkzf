@@ -7,3 +7,5 @@ axios.defaults.baseURL = BASE_URL
 
 // 把axios设置全局,给React.Component的原型添加一个属性
 React.Component.prototype.$axios = axios
+
+export { axios }

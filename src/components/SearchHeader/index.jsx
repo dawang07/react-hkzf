@@ -7,6 +7,8 @@ import { Flex } from 'antd-mobile'
 
 import styles from './index.module.scss'
 
+import PropTypes from 'prop-types'
+
 function SearchHeader({ cityName, history }) {
   return (
     <div className={styles.root}>
@@ -30,6 +32,11 @@ function SearchHeader({ cityName, history }) {
       </Flex>
     </div>
   )
+}
+
+//约束父组件传过来的值的类型
+SearchHeader.propTypes = {
+  cityName: PropTypes.string.isRequired
 }
 
 export default withRouter(SearchHeader)
