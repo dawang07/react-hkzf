@@ -59,10 +59,16 @@ export default class index extends Component {
     obj['#'] = [currentCity]
 
     // 赋值给模型
-    this.setState({
-      cityListObj: obj,
-      cityIndex
-    })
+    this.setState(
+      {
+        cityListObj: obj,
+        cityIndex
+      },
+      () => {
+        // 计算所有的行信息，为将来切换表格服务
+        this.listRef.current.measureAllRows()
+      }
+    )
 
     // console.log(this.state.cityListObj, this.state.cityIndex)
   }
@@ -197,7 +203,7 @@ export default class index extends Component {
                 rowHeight={this.calcRowHeight} //每行数据的高度
                 rowRenderer={this.rowRenderer} //渲染每一行数据
                 onRowsRendered={this.onRowsRendered}
-                scrollToAlignment="start"
+                scrollToAlignment="start" //对齐方式 ,默认是auto
               />
             )}
           </AutoSizer>

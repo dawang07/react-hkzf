@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { Carousel } from 'antd-mobile'
 import styles from './index.module.scss'
 import { BASE_URL } from '../../utils/url'
-import SearchHeader from '../../components/SearchHeader'
 import { Flex, Grid, WingBlank } from 'antd-mobile'
 import images1 from '../../assets/images/nav-1.png'
 import images2 from '../../assets/images/nav-2.png'
 import images3 from '../../assets/images/nav-3.png'
 import images4 from '../../assets/images/nav-4.png'
 import { getCurrentCity } from '../../utils/city'
+
+//导入子组件
+import SearchHeader from '../../components/SearchHeader'
 
 export default class index extends Component {
   state = {

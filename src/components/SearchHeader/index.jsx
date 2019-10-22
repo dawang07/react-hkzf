@@ -9,9 +9,11 @@ import styles from './index.module.scss'
 
 import PropTypes from 'prop-types'
 
-function SearchHeader({ cityName, history }) {
+import classNames from 'classnames'
+
+function SearchHeader({ cityName, history, className }) {
   return (
-    <div className={styles.root}>
+    <div className={classNames(styles.root, className)}>
       <Flex>
         <Flex className={styles.searchLeft}>
           <div
@@ -28,7 +30,10 @@ function SearchHeader({ cityName, history }) {
           </div>
         </Flex>
 
-        <i className="iconfont icon-map "></i>
+        <i
+          className="iconfont icon-map"
+          onClick={() => history.push('/map')}
+        ></i>
       </Flex>
     </div>
   )
