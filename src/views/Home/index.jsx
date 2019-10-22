@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-
 import { Route } from 'react-router-dom'
+import { TabBar } from 'antd-mobile'
 
+//导入子组件
 import Index from '../Index'
 import HouseList from '../HouseList'
 import News from '../News'
 import Profile from '../Profile'
-
-import { TabBar } from 'antd-mobile'
 
 //导入sass样式
 import styles from './index.module.scss'
@@ -95,12 +94,11 @@ export default class Home extends Component {
     return (
       <div className={styles.home}>
         {/* 嵌套分页路由 */}
-        <div>
-          <Route exact path="/home" component={Index} />
-          <Route path="/home/houseList" component={HouseList} />
-          <Route path="/home/news" component={News} />
-          <Route path="/home/profile" component={Profile} />
-        </div>
+
+        <Route exact path="/home" component={Index} />
+        <Route path="/home/houseList" component={HouseList} />
+        <Route path="/home/news" component={News} />
+        <Route path="/home/profile" component={Profile} />
 
         {/* TabBar:底部标签栏 */}
         <div className={styles.tabbar}></div>
