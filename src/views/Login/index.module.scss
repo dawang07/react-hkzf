@@ -1,10 +1,11 @@
 .root {
+  padding-top: 45px;
   height: 100%;
   background-color: #fff;
 }
 
 .navHeader {
-  margin-top: 0;
+  // margin-top: 0;
   background-color: #fff;
 }
 
@@ -23,7 +24,7 @@
 }
 
 .formItem::after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: #ddd;
   display: block;
